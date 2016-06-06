@@ -1,0 +1,40 @@
+<ion-view view-title="Todo">
+	<ion-content>
+	   <ion-list class="list list-inset">
+			 <ion-item ng-repeat="task in tasks">
+                 {{task.task_title}}
+				<ion-option-button class="button-assertive icon ion-ios-trash-outline"
+					ng-click= "onItemDelete(task)" >
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+	<script id="templates/modal.html" type="text/ng-template">
+		<ion-modal-view>
+		  <ion-header-bar class="bar bar-header bar-calm">
+			<h1 class="title">New Todo</h1>
+			<button class="button button-clear button-primary button-icon ion-ios-close-outline" ng-click="modal.hide()"></button>
+		  </ion-header-bar>
+		  <ion-content class="padding">
+			<div class="list">
+			  <label class="item item-input item-floating-label">
+				<span class="input-label">Title</span>
+				<input placeholder="New Task" ng-model="newTask.newTitle" type="text">
+			  </label>
+			  <button class="button button-block button-outline button-calm" 
+				ng-click="createTask(newTask)">Create</button>
+			</div>
+		  </ion-content>
+		</ion-modal-view>
+    </script>
+    <ion-footer-bar class="bar-calm">
+       <button class="button button-icon pull-right" ng-click="modal.show()">
+          <i class="icon ion-compose"></i>
+       </button>
+    </ion-footer-bar> 
+</ion-view>
+
+
+
+
+	
